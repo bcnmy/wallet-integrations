@@ -1,9 +1,9 @@
-## Argent Wallet <> Biconomy Integration
+## Biconomy support for Argent contract wallets 
 
-This reposiroty consists of integration between Argent Wallets and Biconomy Relayer Infrastructure.<br/>
+This repository consists of integration between Argent Wallets and Biconomy Relayer Infrastructure.<br/>
 It showcases how any DApp using Argent contract wallets can use Biconomy as a relayer service to relay the transactions without creating a relayer infrastructure by themselves.
 
->Note : The contract address in this demo are deployed on ropsten. If you are using other Network ,replace it with own deployed address.
+>Note : The contract address in this demo are deployed on ropsten. If you are using other Network ,replace it with your own deployed addresses.
 
 <h3>To Run</h3>
 
@@ -29,8 +29,18 @@ For ETH transfer value is `0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` and for E
 
 3. Replace the web3 provider according to the your testing network.
 
-4. Login to [Biconomy Dashboard](https://dashboard.biconomy.io/), add <strong>Argent TransferModule contract</strong>, copy  `apiId` & `x-api-key`. Repalce the same in the file. 
-Refer our [docs](https://docs.biconomy.io/biconomy-dashboard#lets-get-started) to register and add contracts on dashboard.
+4. To add `apiId` & `x-api-key` 
+
+    4.1. Register/Login to [Biconomy Dashboard](https://dashboard.biconomy.io/)
+    
+    4.2. Verify Email and create your Dapp, this will create `x-api-key`.
+    
+    4.3. Add <strong>Argent TransferModule contract</strong> address and ABI.
+    
+    4.4. Now add your api under "Manage section" and select the "native flag". This will create the `apiId`.
+    
+  
+For more detailed tutorial, Refer to our [docs](https://docs.biconomy.io/biconomy-dashboard#lets-get-started).
 
 ### Now you are all set to run the script
 `node index.js`
