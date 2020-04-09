@@ -1,2 +1,2 @@
 # wallet-integrations
-This Repository consist of various integration with Biconomy.
+This Repository consist of various wallet integration with Biconomy.

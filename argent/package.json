@@ -1,0 +1,24 @@
+{
+  "name": "argent-demo",
+  "version": "1.0.0",
+  "description": "Demo: Relay Argent Contract wallet transactions via Biconomy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Argent",
+    "Meta-transactions",
+    "Biconomy",
+    "Gasless",
+    "Relayer"
+  ],
+  "author": "Divya",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "promise": "^8.1.0",
+    "web3": "^1.2.6"
+  }
+}
