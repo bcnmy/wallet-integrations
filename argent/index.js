@@ -15,8 +15,8 @@ const ownerPublicAddress = process.env.ownerPublicAddress;
 //Signer private key
 const privateKey = process.env.privateKey;
 
-const receiverAddress = "<receiver_address>";
-const transferValue = "<amount_in_wei>"; 
+const receiverAddress = "0xF86B30C63E068dBB6bdDEa6fe76bf92F194Dc53c";
+const transferValue = "10000000000000000"; 
 
 const hex = value => web3.utils.toHex(value)
 const pad = value => web3.utils.padLeft(value, 64)
@@ -37,11 +37,11 @@ async function relayTransactionViaBiconomy(){
 
     const biconomyReqObj = {
         userAddress: ownerPublicAddress,
-        apiId: '<api_id>', //network specific
+        apiId: '5e8d745df64c16288c945064', //network specific
         params: [proxyContract, methodData, nonce, signatures, 0, 0]
     }
 
-    axios.defaults.headers.common["x-api-key"] = '<x-api-key>'; //network specific
+    axios.defaults.headers.common["x-api-key"] = '87RpozCfF.dca41cbc-f61e-4848-aba5-96678bd1335b'; //network specific
 
     axios.post(nativeTransactionUrl, biconomyReqObj)
     .then(function(response) {

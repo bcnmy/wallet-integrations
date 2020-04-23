@@ -1,0 +1,25 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "Showcasing dappPocket transactions relayed by Biconomy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "meta-transactions",
+    "gasless",
+    "dapp",
+    "pocket",
+    "Biconomy",
+    "native"
+  ],
+  "author": "divya",
+  "license": "ISC",
+  "dependencies": {
+    "@biconomy/mexa": "file:../../mexa-sdk",
+    "dotenv": "^8.2.0",
+    "ethers": "^4.0.46",
+    "web3": "^1.2.6"
+  }
+}
