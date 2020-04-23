@@ -17,7 +17,6 @@
   "author": "divya",
   "license": "ISC",
   "dependencies": {
-    "@biconomy/mexa": "file:../../mexa-sdk",
     "dotenv": "^8.2.0",
     "ethers": "^4.0.46",
     "web3": "^1.2.6"
