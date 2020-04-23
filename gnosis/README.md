@@ -11,6 +11,10 @@ Install all Dependencies
 
 `npm install`
 
+Install all Biconomy SDK (Mexa)
+
+`npm install @biconomy/mexa --save`
+
 <h5> .env Changes</h5>
 
 1. Add .env file to the project. Refer the .env.sample file.
