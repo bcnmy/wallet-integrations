@@ -4,19 +4,21 @@ const Biconomy = require("@biconomy/mexa");
 const ethers = require('ethers');
 const Web3 = require('web3');
 const {abi} = require('./abi');
-const providerUrl = 'https://kovan.infura.io/v3/' + process.env.INFURA_TOKEN;
-const privateKey = process.env.privateKey;
-const publicAddress = "<user_public_address>"
+
 
 /* Register Dapp onto biconomy dashboard to get the x-api-key
 */
 const biconomy = new Biconomy(new Web3.providers.HttpProvider(providerUrl),{apiKey: "<x-api-Key>",debug:true});
 const web3 = new Web3(biconomy);
 
+const providerUrl = 'https://kovan.infura.io/v3/' + process.env.INFURA_TOKEN;
 const privateKey = process.env.privateKey;
+const publicAddress = "<user_public_address>"
 const proxyAddress = "<user_proxy_address>";
-const gnosisSafeAddress = '<gnosis_safe_address>'; // kovan
-const tokenAddress = '<erc20_token_address>'; 
+const gnosisSafeAddress = '0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F'; // kovan
+const tokenAddress = '0xf676922BA0564B6925bC9142CB30938bAdDb9f18'; // SPK token
+const receiverAddress = '<receiver_address>';
+const value = '0.01';
 
 /**
  * Get the nonce of proxy contract
@@ -116,14 +118,13 @@ biconomy.onEvent(biconomy.READY, async() => {
     console.log("biconomy initialized");
     // Get current nonce
     const nonce = await getProxyContractNonce(proxyAddress);
-    console.log('Nonce:', nonce);
 
-    // Execute tx to withdraw 0.1 MK7
+    // Execute tx 
     const txHash = await executeTokenTx(
         proxyAddress,
         tokenAddress,
-        '<receiver_address>',
-        '<value>',  //0.001
+        receiverAddress,
+        value,
         nonce,
         gnosisSafeAddress,
     );
