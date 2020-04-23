@@ -21,6 +21,12 @@ Install all Biconomy SDK (Mexa)
 
 2. Add `MNEMONIC , INFURA_TOKEN , privateKey` in .env.
 
+<h5>abi.js Changes </h5>
+
+1. Gnosis's `ProxyFactory` , `GnosisSafe` abi is already added. `ProxyFactory` is used to create the Proxy contract (GnosisSafe). `GnosisSafe` is the Proxy contract unique for each user.
+
+2. Replace `erc20Token` abi as per your ERC20 token address
+
 <h5>index.js Changes </h5>
 
 1. Replace `providerUrl` as per the network your are using.
