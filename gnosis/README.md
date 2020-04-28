@@ -19,7 +19,7 @@ Install all Biconomy SDK (Mexa)
 
 1. Add .env file to the project. Refer the .env.sample file.
 
-2. Add `MNEMONIC , INFURA_TOKEN , privateKey` in .env.
+2. Add `INFURA_TOKEN , privateKey` in .env.
 
 <h5>abi.js Changes </h5>
 
