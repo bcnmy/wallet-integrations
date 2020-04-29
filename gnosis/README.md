@@ -11,7 +11,7 @@ Install all Dependencies
 
 `npm install`
 
-Install all Biconomy SDK (Mexa)
+Install latest Biconomy SDK (Mexa)
 
 `npm install @biconomy/mexa --save`
 
@@ -27,7 +27,7 @@ Install all Biconomy SDK (Mexa)
 
 2. Replace `erc20Token` abi as per your ERC20 token address
 
-<h5>index.js Changes </h5>
+<h5>index.js Changes (All the pre-existing value are Kovan Based)</h5>
 
 1. Replace `providerUrl` as per the network your are using.
 
@@ -35,7 +35,7 @@ Install all Biconomy SDK (Mexa)
 
 > Network Specific gnosisSafeAddress ,Please follow this https://github.com/gnosis/safe-contracts/tree/development/.openzeppelin 
 
-3. Replace `publicAddress , proxyAddress` & `receiverAddress` as per own requirement.
+3. Replace `publicAddress , proxyAddress` & `receiverAddress` with your own addresses.
 
 4. To add `x-api-key` 
 
