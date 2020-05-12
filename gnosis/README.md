@@ -3,7 +3,7 @@
 This repository consists of integration between Gnosis Wallets and Biconomy Relayer Infrastructure.<br/>
 It showcases how any DApp using Gnosis contract wallets can use Biconomy as a relayer service to relay the transactions without creating a relayer infrastructure by themselves.
 
->Note : The contract address in this demo are deployed on Koven. If you are using other Network ,feel free to change it.
+>Note : The contract address in this demo are deployed on Kovan. If you are using other Network ,feel free to change it.
 
 <h3>To Run</h3>
 
