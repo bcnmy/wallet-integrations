@@ -8,10 +8,10 @@ const {abi} = require('./abi');
 
 /* Register Dapp onto biconomy dashboard to get the x-api-key
 */
+const providerUrl = 'https://kovan.infura.io/v3/' + process.env.INFURA_TOKEN;
 const biconomy = new Biconomy(new Web3.providers.HttpProvider(providerUrl),{apiKey: "<x-api-Key>",debug:true});
 const web3 = new Web3(biconomy);
 
-const providerUrl = 'https://kovan.infura.io/v3/' + process.env.INFURA_TOKEN;
 const privateKey = process.env.privateKey;
 const publicAddress = "<user_public_address>"
 const proxyAddress = "<user_proxy_address>";
