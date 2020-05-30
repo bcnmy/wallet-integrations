@@ -3,6 +3,11 @@
 This repository consists of integration between Gnosis Wallets and Biconomy Relayer Infrastructure.<br/>
 It showcases how any DApp using Gnosis contract wallets can use Biconomy as a relayer service to relay the transactions without creating a relayer infrastructure by themselves.
 
+Steps to run this script.
+1. Uncomment line no. 180, and Run "createProxy" method to create your proxy contract wallet. Proxy will be created and transfer call will be failed as you don't have any ERC20 in your newly created wallet.
+2. Transfer some ERC20 token to the proxy contract wallet from your wallet (i.e metamask);
+3. Comment the line no. 180, and run the script by hardcoding the proxy wallet address generated in Step 1.
+
 >Note : The contract address in this demo are deployed on Kovan. If you are using other Network ,feel free to change it.
 
 <h3>To Run</h3>
