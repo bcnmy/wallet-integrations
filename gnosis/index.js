@@ -14,7 +14,7 @@ const web3 = new Web3(biconomy);
 
 const privateKey = process.env.privateKey;
 const publicAddress = "<user_public_address>"
-const proxyAddress = "<user_proxy_address>";
+const proxyFactoryAddress = '0x76E2cFc1F5Fa8F6a5b3fC4c8F4788F0116861F9B'; // kovan
 const gnosisSafeAddress = '0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F'; // kovan
 const tokenAddress = '0xf676922BA0564B6925bC9142CB30938bAdDb9f18'; // SPK token
 const receiverAddress = '<receiver_address>';
@@ -30,6 +30,65 @@ const getProxyContractNonce = async function(proxyAddress) {
     const nonce = await proxyContract.methods.nonce().call();
     console.log('nonce.toNumber():', nonce);
     return nonce;
+}
+
+/**
+ * Create Proxy Contract
+ * @param {string} proxyFactoryAddress
+ * @param {string} gnosisSafeAddress
+ * @returns {string} proxy address
+ */
+const createProxyContract = function(proxyFactoryAddress, gnosisSafeAddress) {
+
+    return new Promise(async function (resolve, reject){
+            // Get Creation Data
+        const gnosisSafeMasterCopy = new web3.eth.Contract(abi.GnosisSafe, gnosisSafeAddress);
+        const creationData = gnosisSafeMasterCopy.methods.setup(
+            [publicAddress],
+            1,
+            '0x0000000000000000000000000000000000000000',
+            '0x0',
+            '0x0000000000000000000000000000000000000000',
+            '0x0000000000000000000000000000000000000000',
+            0,
+            '0x0000000000000000000000000000000000000000',
+        ).encodeABI();
+        // console.log(creationData);
+
+        // Create Proxy
+        const proxyFactory = new web3.eth.Contract(abi.ProxyFactory, proxyFactoryAddress);
+        const tx = await proxyFactory.methods.createProxy(gnosisSafeAddress, creationData).encodeABI();
+        const extimateGas = await proxyFactory.methods.createProxy(gnosisSafeAddress, creationData).estimateGas();
+        
+        let txParams = {
+            "from": publicAddress,
+            "gasLimit": extimateGas,
+            "to": proxyFactoryAddress,
+            "value": "0x0",
+            "data": tx
+        };
+
+        // console.log(txParams);
+
+        const signedTx = await web3.eth.accounts.signTransaction(txParams, '0x'+privateKey);
+        await web3.eth.sendSignedTransaction(signedTx.rawTransaction)
+        .on("transactionHash", async function(hash) {
+            console.log(hash);
+        }).
+        on("error", err => {
+            reject(err)
+        })
+        .once("confirmation", async (confirmation, receipt) => {
+
+            let localProxyAddress = hexStripZeros(receipt.logs[0].data);
+            if(localProxyAddress.length < 42) {
+                console(`Fixing trailing zeros in address ${localProxyAddress}`);
+                localProxyAddress = fixTrailingZero(localProxyAddress);
+                console.log(`Fixed address ${localProxyAddress}`);
+            }
+            resolve(localProxyAddress);
+        }); 
+    });
 }
 
 /**
@@ -116,6 +175,10 @@ const executeTokenTx = async function(proxyAddress, to, destination, value, nonc
 biconomy.onEvent(biconomy.READY, async() => {
     // Initialize your dapp here like getting user accounts etc
     console.log("biconomy initialized");
+
+    // create proxy
+    let proxyAddress = await createProxyContract(proxyFactoryAddress, gnosisSafeAddress)
+
     // Get current nonce
     const nonce = await getProxyContractNonce(proxyAddress);
 
