@@ -17,7 +17,7 @@ Install latest Biconomy SDK (Mexa)
 
 <h5> .env Changes</h5>
 
-1. Add .env file to the project. Refer the .env.sample file.
+1. Add .env file to the project. Refer the .env-example file.
 
 2. Add `INFURA_TOKEN , privateKey` in .env.
 
