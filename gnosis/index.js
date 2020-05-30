@@ -177,7 +177,7 @@ biconomy.onEvent(biconomy.READY, async() => {
     console.log("biconomy initialized");
 
     // create proxy
-    let proxyAddress = await createProxyContract(proxyFactoryAddress, gnosisSafeAddress)
+    // let proxyAddress = await createProxyContract(proxyFactoryAddress, gnosisSafeAddress)
 
     // Get current nonce
     const nonce = await getProxyContractNonce(proxyAddress);
