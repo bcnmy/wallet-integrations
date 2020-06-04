@@ -25,13 +25,11 @@ Install latest Biconomy SDK (Mexa)
 
 1. Gnosis's `ProxyFactory` , `GnosisSafe` abi is already added. `ProxyFactory` is used to create the Proxy contract (GnosisSafe). `GnosisSafe` is the Proxy contract unique for each user.
 
-2. Replace `erc20Token` abi as per your ERC20 token address
-
 <h5>index.js Changes (All the pre-existing value are Kovan Based)</h5>
 
 1. Replace `providerUrl` as per the network your are using.
 
-2. Replace ` gnosisSafeAddress` & `tokenAddress` with your deployed contract addresses or use the same for testing.
+2. Replace ` gnosisSafeAddress` with your deployed contract address or use the same for testing.
 
 > Network Specific gnosisSafeAddress ,Please follow this https://github.com/gnosis/safe-contracts/tree/development/.openzeppelin 
 
