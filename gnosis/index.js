@@ -15,7 +15,7 @@ const biconomy = new Biconomy(new Web3.providers.HttpProvider(providerUrl),
 const web3 = new Web3(biconomy);
 
 const proxyFactoryAddress = '0x76E2cFc1F5Fa8F6a5b3fC4c8F4788F0116861F9B'; // kovan
-const proxyAddress = "0xb16a5a4dbb3e837bf43e8bb8a699d99b7bef6943";
+//const proxyAddress = "<Proxy_Address>";
 const gnosisSafeAddress = '0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F'; // kovan
 
 /**
