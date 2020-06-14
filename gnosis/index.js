@@ -197,3 +197,19 @@ biconomy.onEvent(biconomy.READY, async() => {
     console.log(error,message)
     // Handle error while initializing mexa
   });
+
+const fixTrailingZero = (address) => {
+    let trailingZero = "";
+    for(let index = 0; index < (42-address.length); index++) trailingZero += "0";
+    return `${address.substring(0,2)}${trailingZero}${address.substring(2,address.length)}`;
+}
+
+const hexStripZeros = (value) => {
+    if (!web3.utils.isHex(value)) {
+        throw new Error('invalid hex string', { arg: 'value', value: value });
+    }
+    while (value.length > 3 && value.substring(0, 3) === '0x0') {
+        value = '0x' + value.substring(3);
+    }
+    return value;
+}
